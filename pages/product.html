@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHERIA — Товар</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+    <link rel="stylesheet" href="../styles/product.css">
+
+    <link rel="shortcut icon" href="../assets/image/favicon.ico" />
+    <meta name="apple-mobile-web-app-title" content="Aetheria" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body>
+    <div class="page-container">
+        <nav class="navbar">
+            <div class="w-full h-full flex items-center justify-between px-4 md:px-8">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center mr-6 md:mr-8 no-underline hover:opacity-90 transition-opacity" aria-label="На главную">
+                        <div class="w-8 h-8 md:w-11 md:h-11 logo-gradient rounded-md flex items-center justify-center mr-3">
+                            <span class="brand-font text-white text-xl md:text-2xl font-bold">B</span>
+                        </div>
+                        <span class="brand-font text-black text-xl md:text-2xl font-bold logo-text">Blossom</span>
+                    </a>
+                    <div class="desktop-nav-links hidden md:flex gap-6 md:gap-8">
+                        <a href="../index.html" class="text-base md:text-lg text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap">Главная</a>
+                        <a href="./catalog.html" class="text-base md:text-lg text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap">Каталог</a>
+                        <a href="./faq.html" class="text-base md:text-lg text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap">Помощь</a>
+                    </div>
+                </div>
+
+                <div class="desktop-buttons hidden md:flex items-center gap-3 md:gap-4">
+                    <button class="cart-open-btn flex items-center border border-gray-300 rounded-md px-3 md:px-4 py-2 hover:bg-gray-50 transition-colors whitespace-nowrap relative">
+                        <i class="fas fa-shopping-cart text-gray-700 mr-2"></i>
+                        <span class="font-semibold text-base md:text-lg text-gray-700">Корзина</span>
+                        <span class="cart-count-badge" data-cart-count>0</span>
+                    </button>
+                    <div class="auth-controls">
+                        <button class="auth-open-btn text-base md:text-lg" data-auth-open>
+                            <i class="fas fa-user"></i>
+                            <span data-auth-label>Войти</span>
+                        </button>
+                        <div class="auth-user-chip hidden" data-auth-chip>
+                            <div class="auth-user-avatar" data-auth-avatar>A</div>
+                            <div class="auth-user-meta">
+                                <span class="auth-user-name" data-auth-name>Пользователь</span>
+                                <span class="auth-user-email hidden" data-auth-email></span>
+                            </div>
+                        </div>
+                        <button class="auth-logout-btn hidden" data-auth-logout>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Выйти</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="burger-menu md:hidden flex flex-col cursor-pointer">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                </div>
+
+                <div class="mobile-menu">
+                    <a href="../index.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Главная</a>
+                    <a href="./catalog.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Каталог</a>
+                    <a href="./faq.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Помощь</a>
+                    <button class="cart-open-btn w-full flex items-center justify-center border border-gray-300 rounded-md px-4 py-2 mt-2 hover:bg-gray-50 transition-colors relative">
+                        <i class="fas fa-shopping-cart text-gray-700 mr-2"></i>
+                        <span class="font-semibold text-gray-700">Корзина</span>
+                        <span class="cart-count-badge" data-cart-count>0</span>
+                    </button>
+                    <div class="flex flex-col gap-2 mt-2">
+                        <button class="auth-open-btn w-full justify-center" data-auth-open>
+                            <i class="fas fa-user"></i>
+                            <span data-auth-label>Войти</span>
+                        </button>
+                        <div class="auth-user-chip hidden" data-auth-chip>
+                            <div class="auth-user-avatar" data-auth-avatar>A</div>
+                            <div class="auth-user-meta">
+                                <span class="auth-user-name" data-auth-name>Пользователь</span>
+                                <span class="auth-user-email" data-auth-email></span>
+                            </div>
+                        </div>
+                        <button class="auth-logout-btn hidden w-full justify-center" data-auth-logout>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Выйти</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content pt-24">
+            <section class="product-page">
+                <div id="productContainer"></div>
+            </section>
+        </main>
+
+        <footer class="footer text-white rounded-t-3xl pt-8 pb-6 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 footer-content">
+                    <div class="md:col-span-1">
+                        <h3 class="brand-font text-lg font-semibold mb-2">AETHERIA</h3>
+                        <p class="text-base text-white/50 leading-5">
+                            Интернет-магазин товаров красоты и здоровья.<br> Безопасность, скорость и гарантия качества.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-base mb-4">Покупателям</h4>
+                            <ul class="space-y-2 text-sm text-white/50">
+                                <li><a href="catalog.html" class="hover:text-white transition-colors">Каталог товаров</a></li>
+                                <li><a href="collections.html" class="hover:text-white transition-colors">Акции и скидки</a></li>
+                                <li><a href="faq.html" class="hover:text-white transition-colors">Помощь и поддержка</a></li>
+                                <li><a href="faq.html" class="hover:text-white transition-colors">Гарантии</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-base mb-4">Контакты</h4>
+                            <ul class="space-y-2 text-sm text-white/50">
+                                <li class="flex items-center">
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    <a href="mailto:support@blossom.store" class="hover:text-white transition-colors">support@blossom.store</a>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-headset mr-2"></i>
+                                    <a href="mailto:support@blossom.store" class="hover:text-white transition-colors">Техническая поддержка</a>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fab fa-telegram mr-2"></i>
+                                    <a href="#" class="hover:text-white transition-colors">Telegram канал</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="cart-header">
+            <div>
+                <p class="cart-title">Корзина</p>
+                <p class="cart-subtitle">Добавьте товары и оформите заказ</p>
+            </div>
+            <button id="cartClose" class="cart-close" aria-label="Закрыть корзину">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <span>Итого</span>
+                <span id="cartTotal" class="cart-total">0 ₽</span>
+            </div>
+            <input id="cartEmail" class="cart-email" type="email" placeholder="Ваша почта для чека и чата" />
+            <div class="cart-actions">
+                <button id="cartClear" class="cart-clear">Очистить</button>
+                <button id="cartCheckout" class="cart-checkout">Оформить</button>
+            </div>
+        </div>
+    </aside>
+
+    <script src="../scripts/products.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/cart.js"></script>
+    <script src="../scripts/theme.js"></script>
+    <script src="../scripts/product.js"></script>
+</body>
+</html>
+
